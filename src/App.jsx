@@ -1,8 +1,10 @@
 import { Component } from 'react';
 
-import {Statistics} from './components/Statistics/Statistics'
+import { Statistics } from './components/Statistics/Statistics';
 
-
+import {FeedbackOptions} from './components/FeedbackOptions/FeedbackOptions'
+  
+  
 export class App extends Component {
   static defaultProps = {};
 
@@ -11,31 +13,12 @@ export class App extends Component {
     neutral: 0,
     bad: 0,
   };
-  handleGoodAdd = () => {
+
+  onLeaveFeedback = (state) => {
     this.setState(prevState => ({
-      good: prevState.good + 1,
+      [state]: prevState[state] + 1,
     }));
   };
-
-  handleNeutralAdd = () => {
-    this.setState(prevState => ({
-      neutral: prevState.neutral + 1,
-    }));
-  };
-
-  handleBadAdd = () => {
-    this.setState(prevState => ({
-      bad: prevState.bad + 1,
-    }));
-  };
-
-  // handleFeedback = state => {
-  //   this.setState(prevState => ({
-  //     [state]: prevState[state] + 1,
-  //   }));
-  // };
-
- 
 
   countTotalFeedback = () => {
     const obj = this.state;
@@ -58,27 +41,11 @@ export class App extends Component {
     return (
       <div>
         <h2>Please Leave Feedback</h2>
-        <ul>
-          <li>
-            {' '}
-            <button onClick={this.handleGoodAdd}>Good</button>
-          </li>
-          <li>
-            {' '}
-            <button onClick={this.handleNeutralAdd} className="neutral">
-              Neutral
-            </button>
-          </li>
-          <li>
-            {' '}
-            <button
-              options={Object.keys(this.state)}
-              className="bad"
-            >
-              Bad
-            </button>
-          </li>
-        </ul>
+        <FeedbackOptions
+          options={Object.keys(this.state)}
+          onLeaveFeedback={this.onLeaveFeedback}
+        />
+
         <Statistics
           good={good}
           neutral={neutral}
@@ -91,5 +58,4 @@ export class App extends Component {
   }
 }
 
-
-//  
+//
