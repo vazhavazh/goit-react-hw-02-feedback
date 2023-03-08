@@ -29,6 +29,14 @@ export class App extends Component {
     }));
   };
 
+  // handleFeedback = state => {
+  //   this.setState(prevState => ({
+  //     [state]: prevState[state] + 1,
+  //   }));
+  // };
+
+ 
+
   countTotalFeedback = () => {
     const obj = this.state;
     const total = Object.values(obj).reduce((acc, val) => acc + val, 0);
@@ -63,7 +71,10 @@ export class App extends Component {
           </li>
           <li>
             {' '}
-            <button onClick={this.handleBadAdd} className="bad">
+            <button
+              options={Object.keys(this.state)}
+              className="bad"
+            >
               Bad
             </button>
           </li>
