@@ -1,4 +1,4 @@
-import styled from '@emotion/styled'
+import styled from '@emotion/styled';
 
 export const Button = styled.button`
   background-color: #555; /* серый фон кнопки */
@@ -13,4 +13,9 @@ export const Button = styled.button`
   &:hover {
     background-color: #888; /* изменение фона кнопки при наведении */
   }
+`;
+
+export const ButtonWrapper = styled.div`
+  display: flex;
+  gap: 10px;
 `;

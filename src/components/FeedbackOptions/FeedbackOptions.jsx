@@ -1,10 +1,9 @@
-import PropTypes from "prop-types"
-import { Button } from "./FeedbackOptionsStyled";
-
+import PropTypes from 'prop-types';
+import { Button, ButtonWrapper } from './FeedbackOptionsStyled';
 
 export const FeedbackOptions = ({ options, onLeaveFeedback }) => {
   return (
-    <>
+    <ButtonWrapper>
       {options.map(option => {
         return (
           <Button
@@ -16,11 +15,11 @@ export const FeedbackOptions = ({ options, onLeaveFeedback }) => {
           </Button>
         );
       })}
-    </>
+    </ButtonWrapper>
   );
 };
 
 FeedbackOptions.propTypes = {
   options: PropTypes.arrayOf(PropTypes.string).isRequired,
-  onLeaveFeedback: PropTypes.func.isRequired
+  onLeaveFeedback: PropTypes.func.isRequired,
 };
