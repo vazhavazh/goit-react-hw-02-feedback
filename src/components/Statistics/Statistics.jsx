@@ -6,8 +6,7 @@ total,
 positivePercentage,
 }) => {
     return (
-      <div>
-        <h2>Statisctics</h2>
+      <>
         <ul>
           <li>
             <span>Good: {good}</span>
@@ -25,7 +24,7 @@ positivePercentage,
             <span>Positive feedback: {positivePercentage} %</span>
           </li>
         </ul>
-      </div>
+      </>
     );
 };
 
